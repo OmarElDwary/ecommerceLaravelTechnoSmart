@@ -151,29 +151,6 @@
                                     </div>
 
                                     <div id="selectSize" class="addeffect-section product-description border-product">
-                                        <h6 class="product-title size-text">select size
-                                            <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                data-bs-target="#sizemodal">size chart</a>
-                                        </h6>
-
-                                        <h6 class="error-message">please select size</h6>
-
-                                        <div class="size-box">
-                                            <ul>
-                                                <li>
-                                                    <a href="javascript:void(0)">s</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)">m</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)">l</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)">xl</a>
-                                                </li>
-                                            </ul>
-                                        </div>
 
                                         <h6 class="product-title product-title-2 d-block">quantity</h6>
 
@@ -197,7 +174,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="product-buttons">
+                                    {{-- <div class="product-buttons">
                                         <a href="javascript:void(0)" class="btn btn-solid">
                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                             <span>Wishlist</span>
@@ -216,7 +193,7 @@
 
 
 
-                                    </div>
+                                    </div> --}}
 
                                     <ul class="product-count shipping-order">
                                         <li>

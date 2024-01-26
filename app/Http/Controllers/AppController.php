@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('index');
+        $categories = Category::get();
+        return view('index', ['categories'=> $categories]);
     }
 }

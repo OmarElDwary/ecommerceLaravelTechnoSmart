@@ -186,11 +186,17 @@
                                                     @auth
                                                         @if(Auth::user()->userType === 'ADM')
                                                             <li>
-                                                                <a href="{{route('admin.index')}}" class="d-block">dashboard</a>
+                                                                <a href="{{route('admin.index')}}" class="d-block">Dashboard</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{route('admin.create')}}" class="d-block">Create Product</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{route('admin.categories')}}" class="d-block">Categories</a>
                                                             </li>
                                                         @else
                                                             <li>
-                                                                <a href="{{route('user.index')}}" class="d-block">My Account</a>                                               
+                                                                <a href="{{route('user.index')}}" class="d-block">My Account</a>
                                                             </li>
                                                         @endif
                                                         <li>
@@ -235,7 +241,7 @@
         </div>
     </header>
 
-    <div class="mobile-menu d-sm-none">
+    {{-- <div class="mobile-menu d-sm-none">
         <ul>
             <li>
                 <a href="demo3.php" class="active">
@@ -268,7 +274,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 
     @yield('content')
 
@@ -288,11 +294,10 @@
                             </div>
                             <ul class="contact-lists" style="clear:both;">
                                 <li>
-                                    <span><b>phone:</b> <span class="font-light"> +1 0000000000</span></span>
+                                    <span><b>email:</b> <span class="font-light"></span></span>
                                 </li>
                                 <li>
-                                    <span><b>Address:</b><span class="font-light"> NIT, Faridabad, Haryana,
-                                            India</span></span>
+                                    <span><b>Address:</b><span class="font-light"> Bab El Louq</span></span>
                                 </li>
                                 <li>
                                     <span><b>Email:</b><span class="font-light"> contact@Techno Star.in</span></span>
@@ -314,12 +319,6 @@
                                         <a href="{{route('shop.index')}}" class="font-dark">Shop</a>
                                     </li>
                                     <li>
-                                        <a href="about-us.html" class="font-dark">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="font-dark">Blog</a>
-                                    </li>
-                                    <li>
                                         <a href="contact-us.html" class="font-dark">Contact</a>
                                     </li>
                                 </ul>
@@ -333,20 +332,14 @@
                             </div>
                             <div class="footer-content">
                                 <ul>
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <a href="{{route('shop.index', ['category' => $category->slug])}}" class="font-dark">{{$category->name}}</a>
+                                        </li>
+                                        
+                                    @endforeach
                                     <li>
                                         <a href="{{route('shop.index')}}" class="font-dark">Latest Shoes</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('shop.index')}}" class="font-dark">Branded Jeans</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('shop.index')}}" class="font-dark">New Jackets</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('shop.index')}}" class="font-dark">Colorfull Hoodies</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('shop.index')}}" class="font-dark">Shiner Goggles</a>
                                     </li>
                                 </ul>
                             </div>
@@ -456,7 +449,7 @@
                                         <a href="shop-left-sidebar.php"
                                             class="btn default-light-theme conti-button default-theme default-theme-2 rounded">CONTINUE
                                             SHOPPING</a>
-                                        <a href="cart.php"
+                                        <a href="{{route('cart.index')}}}"
                                             class="btn default-light-theme conti-button default-theme default-theme-2 rounded">VIEW
                                             CART</a>
                                     </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +23,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $products = Product::orderBy('created_at', 'DESC')->take(12)->get();
+        $categories = Category::orderBy('created_at','DESC')->get();
+        return view('index', ['products'=> $products, 'categories'=> $categories]);
     }
 }

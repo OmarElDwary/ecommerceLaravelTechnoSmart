@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
-use App\Livewire\Admin\AdminCategoriesComponent;
+use App\Http\Controllers\Admin\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AdminController;
@@ -20,7 +22,9 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/',[AppController::class, 'index'])->name('app.index');
+Route::get('/',[AppController::class, 'index'])->name('layouts.base');
 Route::get('/shop',[ShopController::class, 'index'])->name('shop.index');
+Route::get('/', [HomeController::class,'index'])->name('app.index');
 Route::get('/product/{slug}',[ShopController::class, 'productDetails'])->name('shop.product.details');
 
 // Cart Routes
@@ -39,4 +43,7 @@ Route::middleware('auth')->group(function() {
 // Admin Routes
 Route::middleware(['auth', 'auth.admin'])->group(function() {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/create-product', [ProductController::class,'index'])->name('admin.create'); // create product page
+    Route::post('/admin/store-product', [ProductController::class,'create'])->name('admin.store'); // store product
+    Route::get('/admin/categories', [CategoriesController::class,'index'])->name('admin.categories'); // all categories page
 });

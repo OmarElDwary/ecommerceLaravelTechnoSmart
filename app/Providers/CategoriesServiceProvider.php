@@ -6,11 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Category;
 
-
-class AppServiceProvider extends ServiceProvider
+class CategoriesServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      */
     public function register(): void
     {
@@ -18,10 +17,12 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      */
     public function boot(): void
     {
-        View::share('categories', Category::all());
+        View::composer('layouts.base', function ($view) {
+            $view->with('categories', Category::all());
+        });
     }
 }
