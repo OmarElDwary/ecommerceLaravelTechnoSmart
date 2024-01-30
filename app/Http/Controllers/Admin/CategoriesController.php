@@ -10,6 +10,6 @@ class CategoriesController extends Controller
 {
     public function index() {
         $categories = Category::orderBy('name', 'ASC')->paginate(5);
-        return view('admin.create', ['categories'=> $categories]);
+        return view('admin.categories', ['categories'=> $categories]);
     }
 }

@@ -189,10 +189,16 @@
                                                                 <a href="{{route('admin.index')}}" class="d-block">Dashboard</a>
                                                             </li>
                                                             <li>
+                                                                <a href="{{route('admin.product')}}" class="d-block">Products</a>
+                                                            </li>
+                                                            <li>
                                                                 <a href="{{route('admin.create')}}" class="d-block">Create Product</a>
                                                             </li>
                                                             <li>
                                                                 <a href="{{route('admin.categories')}}" class="d-block">Categories</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{route('admin.category')}}" class="d-block">Create Category</a>
                                                             </li>
                                                         @else
                                                             <li>

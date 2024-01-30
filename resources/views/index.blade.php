@@ -105,7 +105,7 @@
                         <div class="product-box">
                             <div class="img-wrapper">
                                 <a href="{{route('shop.product.details',['slug'=>$product->slug])}}">
-                                    <img src="assets/images/fashion/product/back/{{$product->image}}"
+                                    <img src="{{ asset('products/' . $product->image) }}"
                                         class="w-100 bg-img blur-up lazyload" alt="">
                                 </a>
                                 <div class="circle-shape"></div>

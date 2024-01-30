@@ -46,7 +46,7 @@
                                     <div class="col-lg-2">
                                         <div class="details-image-vertical black-slide rounded">
                                             <div>
-                                                <img src="{{ asset('/assets/images/fashion/product/front') }}/{{ $product->image }}"
+                                                <img src="{{ asset('products/' . $product->image) }}"
                                                     class="img-fluid blur-up lazyload" alt="{{$product->name}}">
                                             </div>
                                             @if ($product->images)
@@ -65,7 +65,7 @@
                                     <div class="col-lg-10">
                                         <div class="details-image-1 ratio_asos">
                                             <div>
-                                                <img src="{{ asset('/assets/images/fashion/product/front') }}/{{ $product->image }}"
+                                                <img src="{{ asset('products/' . $product->image) }}"
                                                     class="img-fluid w-100 image_zoom_cls-0 blur-up lazyload"
                                                     alt="">
                                             </div>
@@ -75,7 +75,7 @@
                                                 @endphp
                                                 @foreach ($images as $image)
                                                     <div>
-                                                        <img src="{{ asset('/assets/images/fashion/product/front') }}/{{ $image }}"
+                                                        <img src="{{ asset('products/' . $product->image) }}"
                                                             class="img-fluid w-100 image_zoom_cls-1 blur-up lazyload"
                                                             alt="">
                                                     </div>

@@ -1,4 +1,13 @@
 @extends('layouts.base')
+@push('styles')
+    <style>
+        .btn-action {
+            width: 100%; /* Set the buttons to 100% width */
+            margin-bottom: 5px; /* Optional: Add some spacing between buttons */
+        }
+    </style>
+
+@endpush
 @section('content')
     <div>
         <table class="table">
@@ -10,32 +19,16 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example category rows, replace with dynamic content from your backend -->
+                @foreach($categories as $category)
                 <tr>
-                    @foreach($categories as $category)
-                        <td>{{$category->name}}</td>
-                        <td>{{$category->slug}}</td>
-                        <td>
-                            <button class="btn btn-warning">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                        
-                    @endforeach
-                    {{-- <td>category-1</td> --}}
+                    <td>{{$category->name}}</td>
+                    <td>{{$category->slug}}</td>
                     <td>
-                        <button class="btn btn-warning">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-warning btn-action">Edit</button>
+                        <button class="btn btn-danger btn-action">Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>Category 2</td>
-                    <td>category-2</td>
-                    <td>
-                        <button class="btn btn-warning">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <!-- Add more rows as needed -->
+                @endforeach
             </tbody>
         </table>
     </div>
