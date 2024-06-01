@@ -18,4 +18,9 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class, 'brand_id');
     }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)
+                    ->withPivot('quantity', 'price');
+    }
 }

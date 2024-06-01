@@ -139,10 +139,6 @@
                                             <li><a href="{{route('app.index')}}" class="nav-link menu-title">Home</a></li>
                                             <li><a href="{{route('shop.index')}}" class="nav-link menu-title">Shop</a></li>
                                             <li><a href="{{route('cart.index')}}" class="nav-link menu-title">Cart</a></li>
-                                            <li><a href="about-us.html" class="nav-link menu-title">About Us</a></li>
-                                            <li><a href="contact-us.html" class="nav-link menu-title">Contact Us</a>
-                                            </li>
-                                            <li><a href="blog.html" class="nav-link menu-title">Blog</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -200,9 +196,15 @@
                                                             <li>
                                                                 <a href="{{route('admin.category')}}" class="d-block">Create Category</a>
                                                             </li>
+                                                            <li>
+                                                                <a href="{{route('admin.orders')}}" class="d-block">Orders</a>
+                                                            </li>
                                                         @else
                                                             <li>
                                                                 <a href="{{route('user.index')}}" class="d-block">My Account</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{route('orders.index')}}">My Orders</a>
                                                             </li>
                                                         @endif
                                                         <li>
@@ -344,9 +346,6 @@
                                         </li>
                                         
                                     @endforeach
-                                    <li>
-                                        <a href="{{route('shop.index')}}" class="font-dark">Latest Shoes</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>

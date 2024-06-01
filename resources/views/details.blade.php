@@ -88,22 +88,7 @@
 
                             <div class="col-md-6">
                                 <div class="cloth-details-size">
-                                    <div class="product-count">
-                                        <ul>
-                                            <li>
-                                                <img src="../assets/images/gif/fire.gif" class="img-fluid blur-up lazyload"
-                                                    alt="image">
-                                                <span class="p-counter">37</span>
-                                                <span class="lang">orders in last 24 hours</span>
-                                            </li>
-                                            <li>
-                                                <img src="../assets/images/gif/person.gif"
-                                                    class="img-fluid user_img blur-up lazyload" alt="image">
-                                                <span class="p-counter">44</span>
-                                                <span class="lang">active view this</span>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
 
                                     <div class="details-image-concept">
                                         <h2>{{$product->name}}</h2>
@@ -124,31 +109,7 @@
 
                                     </h3>
 
-                                    <div class="color-image">
-                                        <div class="image-select">
-                                            <h5>Color :</h5>
-                                            <ul class="image-section">
-                                                <li>
-                                                    <a href="javascript:void(0)">
-                                                        <img src="../assets/images/fashion/product/front/5.jpg"
-                                                            class="img-fluid blur-up lazyload" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)">
-                                                        <img src="../assets/images/fashion/product/front/6.jpg"
-                                                            class="img-fluid blur-up lazyload" alt="">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)">
-                                                        <img src="../assets/images/fashion/product/front/7.jpg"
-                                                            class="img-fluid blur-up lazyload" alt="">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    
 
                                     <div id="selectSize" class="addeffect-section product-description border-product">
 
@@ -174,11 +135,11 @@
                                         </div>
                                     </div>
 
-                                    {{-- <div class="product-buttons">
-                                        <a href="javascript:void(0)" class="btn btn-solid">
+                                   <div class="product-buttons">
+                                        {{-- <a href="javascript:void(0)" class="btn btn-solid">
                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                             <span>Wishlist</span>
-                                        </a>
+                                        </a> --}}
                                         <a href="javascript:void(0)" onclick="event.preventDefault();document.getElementById('addtocart').submit();" id="cartEffect"
                                             class="btn btn-solid hover-solid btn-animation">
                                             <i class="fa fa-shopping-cart"></i>
@@ -193,7 +154,7 @@
 
 
 
-                                    </div> --}}
+                                    </div>
 
                                     <ul class="product-count shipping-order">
                                         <li>
@@ -217,7 +178,7 @@
                                         <div class="progress">
                                             <div class="progress-bar" role="progressbar" style="width: 78%"></div>
                                         </div>
-                                        <div class="font-light timer-5">
+                                        {{-- <div class="font-light timer-5">
                                             <h5>Order in the next to get</h5>
                                             <ul class="timer1">
                                                 <li class="counter">
@@ -233,7 +194,7 @@
                                                     <h5 id="seconds">&#9251;</h5> Sec
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <div class="border-product">

@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrdersController;
 // use App\Livewire\Admin\CreateProductsComponent;
 
 /*
@@ -36,6 +37,11 @@ Route::put('/cart/update', [CartController::class, 'updateCart'])->name('cart.up
 Route::delete('/cart/remove', [CartController::class, 'deleteCartItem'])->name('cart.remove'); // remove cart item
 Route::delete('/cart/destroy', [CartController::class, 'destroyCart'])->name('cart.destroy'); // destroy cart
 
+// orders routes
+Route::get('user/my-orders', [OrdersController::class,'index'])->name('orders.index');
+Route::post('/my-orders/store', [OrdersController::class, 'store'])->name('my-orders.store');
+
+
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
@@ -58,4 +64,7 @@ Route::middleware(['auth', 'auth.admin'])->group(function() {
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit'); // edit products
     Route::patch('/admin/products/{product}', [ProductController::class, 'update'])->name('products.update'); // update edits
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy'); // delete products
+
+    // Orders Route
+    Route::get('/all-orders', [ProductController::class,'index'])->name('admin.orders');
 });

@@ -11,19 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('userType')->default('USR');
-            $table->string('address');
-            $table->string('city');
-            $table->string('phoneNumber');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        // ...
+
+    Schema::create('user_orders', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedBigInteger('user_id');
+        $table->foreign('user_id')->references('id')->on('users');
+        $table->unsignedBigInteger('product_id');
+        $table->foreign('product_id')->references('id')->on('products');
+        $table->integer('quantity');
+        $table->decimal('price', 8, 2);  // Adjust the precision and scale based on your needs
+        $table->unsignedBigInteger('order_id');
+        $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+        $table->timestamps();
+    });
+
     }
 
     /**
