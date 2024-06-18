@@ -10,6 +10,6 @@ class AppController extends Controller
     public function index(Request $request)
     {
         $categories = Category::get();
-        return view('index', ['categories'=> $categories]);
+        return view('index', compact('categories'));
     }
 }

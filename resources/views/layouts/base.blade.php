@@ -336,7 +336,7 @@
                             <div class="footer-title">
                                 <h3>New Categories</h3>
                             </div>
-                            <div class="footer-content">
+                            <!-- <div class="footer-content">
                                 <ul>
                                     @foreach($categories as $category)
                                         <li>
@@ -348,7 +348,7 @@
                                         <a href="{{route('shop.index')}}" class="font-dark">Latest Shoes</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">

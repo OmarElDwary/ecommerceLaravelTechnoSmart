@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255', Rule::exists('cities', 'name')],
+            'city' => ['required', 'string', 'max:255'],
             'phoneNumber' => ['required', 'string', 'max:20'],
         ]);
     }

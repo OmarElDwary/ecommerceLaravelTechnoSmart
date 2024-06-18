@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrdersController;
 // use App\Livewire\Admin\CreateProductsComponent;
 
 /*
@@ -35,6 +36,10 @@ Route::post('/cart/store', [CartController::class, 'addToCart'])->name('cart.sto
 Route::put('/cart/update', [CartController::class, 'updateCart'])->name('cart.update'); // update cart
 Route::delete('/cart/remove', [CartController::class, 'deleteCartItem'])->name('cart.remove'); // remove cart item
 Route::delete('/cart/destroy', [CartController::class, 'destroyCart'])->name('cart.destroy'); // destroy cart
+
+// Checkout Routes
+Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout'); // checkout page
+Route::post('/checkout', [OrdersController::class, 'store'])->name('order.store'); // process order
 
 Auth::routes();
 

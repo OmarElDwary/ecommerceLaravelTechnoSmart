@@ -174,7 +174,7 @@
                                         </div>
                                     </div>
 
-                                    {{-- <div class="product-buttons">
+                                    <div class="product-buttons">
                                         <a href="javascript:void(0)" class="btn btn-solid">
                                             <i class="fa fa-bookmark fz-16 me-2"></i>
                                             <span>Wishlist</span>
@@ -193,7 +193,7 @@
 
 
 
-                                    </div> --}}
+                                    </div>
 
                                     <ul class="product-count shipping-order">
                                         <li>
