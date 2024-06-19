@@ -156,12 +156,6 @@
                                         <option value="Birqāsh">Birqāsh</option>
                                         <option value="Kafr Ţaḩlah">Kafr Ţaḩlah</option>
                                     </select>
-
-                                    @error('city')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
                                 </div>
                             </div>
 

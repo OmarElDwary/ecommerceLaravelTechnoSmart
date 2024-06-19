@@ -20,7 +20,7 @@ return new class extends Migration
         $table->unsignedBigInteger('product_id');
         $table->foreign('product_id')->references('id')->on('products');
         $table->integer('quantity');
-        $table->decimal('price', 8, 2);  // Adjust the precision and scale based on your needs
+        $table->decimal('price', 8, 2);
         $table->unsignedBigInteger('order_id');
         $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         $table->timestamps();
