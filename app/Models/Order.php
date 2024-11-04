@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'name', 'address', 'total', 'city', 'username', 'email', 'phoneNumber'];
+
+    // Define the one-to-many relationship with OrderItems
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItems::class, 'order_id');
+    }
+
+    // Define the belongsTo relationship with User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

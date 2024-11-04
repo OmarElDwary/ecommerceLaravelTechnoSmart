@@ -41,6 +41,11 @@ Route::delete('/cart/destroy', [CartController::class, 'destroyCart'])->name('ca
 Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout'); // checkout page
 Route::post('/checkout', [OrdersController::class, 'store'])->name('order.store'); // process order
 
+// orders routes
+Route::get('user/my-orders', [OrdersController::class,'index'])->name('orders.index');
+Route::post('/my-orders/store', [OrdersController::class, 'store'])->name('my-orders.store');
+
+
 Auth::routes();
 
 Route::middleware('auth')->group(function() {
@@ -63,4 +68,7 @@ Route::middleware(['auth', 'auth.admin'])->group(function() {
     Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit'); // edit products
     Route::patch('/admin/products/{product}', [ProductController::class, 'update'])->name('products.update'); // update edits
     Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy'); // delete products
+
+    // Orders Route
+    Route::get('/all-orders', [ProductController::class,'index'])->name('admin.orders');
 });

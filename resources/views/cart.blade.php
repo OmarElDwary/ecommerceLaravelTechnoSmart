@@ -51,60 +51,58 @@
                             </thead>
                             <tbody>
                                 @foreach($cartItems as $cartItem)
-                                    
-                                
-                                <tr>
-                                    <td>
-                                        <a href="{{route('shop.product.details', ['slug'=>$cartItem->model->slug])}}">
-                                            <img src="{{asset('/assets/images/fashion/product/front')}}/{{$cartItem->model->image}}" class="blur-up lazyloaded"
-                                                alt="">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="{{route('shop.product.details', ['slug'=>$cartItem->model->slug])}}">{{$cartItem->model->name}}</a>
-                                        <div class="mobile-cart-content row">
-                                            <div class="col">
-                                                <div class="qty-box">
-                                                    <div class="input-group">
-                                                        <input type="text" name="quantity" class="form-control input-number"
-                                                            value="1">
+                                    <tr>
+                                        <td>
+                                            <a href="{{route('shop.product.details',['slug'=>$cartItem->model->slug])}}">
+                                                <img src="{{asset('/assets/images/fashion/product/front')}}/{{$cartItem->model->image}}" class="blur-up lazyloaded"
+                                                    alt="" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('shop.product.details',['slug'=>$cartItem->model->slug])}}">{{$cartItem->model->name}}</a>
+                                            <div class="mobile-cart-content row">
+                                                <div class="col">
+                                                    <div class="qty-box">
+                                                        <div class="input-group">
+                                                            <input type="text" name="quantity" class="form-control input-number"
+                                                                value="1">
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="col">
+                                                    <h2>{{$cartItem->price}}</h2>
+                                                </div>
+                                                <div class="col">
+                                                    <h2 class="td-color">
+                                                        <a href="javascript:void(0)">
+                                                            <i class="fas fa-times"></i>
+                                                        </a>
+                                                    </h2>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <h2>{{$cartItem->price}}</h2>
+                                        </td>
+                                        <td>
+                                            <h2>{{$cartItem->price}}</h2>
+                                        </td>
+                                        <td>
+                                            <div class="qty-box">
+                                                <div class="input-group">
+                                                    <input type="number" name="quantity"
+                                                        data-rowid="{{$cartItem->rowId}}"
+                                                        onchange="updateQuantity(this)"
+                                                        class="form-control input-number" value="{{$cartItem->qty}}">
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <h2 class="td-color">
-                                                    <a href="javascript:void(0)">
-                                                        <i class="fas fa-times"></i>
-                                                    </a>
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h2>{{$cartItem->price}}</h2>
-                                    </td>
-                                    <td>
-                                        <div class="qty-box">
-                                            <div class="input-group">
-                                                <input type="number" name="quantity"
-                                                    data-rowid="{{$cartItem->rowId}}"
-                                                    onchange="updateQuantity(this)"
-                                                    class="form-control input-number" value="{{$cartItem->qty}}">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h2 class="td-color">{{$cartItem->subtotal()}}</h2>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0)" onclick="removeFromCart('{{$cartItem->rowId}}')">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <h2 class="td-color">{{$cartItem->subtotal()}}</h2>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0)" onclick="removeFromCart('{{$cartItem->rowId}}')">
+                                                <i class="fas fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -113,7 +111,7 @@
                         <div class="row">
                             <div class="col-sm-7 col-5 order-1">
                                 <div class="left-side-button text-end d-flex d-block justify-content-end">
-                                    <a href="javascript:void(0)" onclick="clearCart()" 
+                                    <a href="javascript:void(0)" onclick="clearCart()"
                                         class="text-decoration-underline theme-color d-block text-capitalize">clear
                                         all items</a>
                                 </div>
@@ -156,19 +154,15 @@
                                             <div class="top-details">
                                                 <h3>Cart Totals</h3>
                                                 <h6>Sub Total <span>{{Cart::instance('cart')->subtotal()}}</span></h6>
-                                                <h6>Shipping <span>{{
-                                                    Cart::instance('cart')->subtotal() > 1000 ? 'Free' : '50'    
-                                                }}</span></h6>
-
-                                                <h6>Total <span>{{Cart::instance('cart')->subtotal()}}</span></h6>
                                             </div>
                                             <div class="bottom-details">
-                                                <a href="">Place Order</a>
-                                                <form action="{{ route('order.store') }}" method="POST">
+
+                                                <form method="POST" action="{{ route('my-orders.store') }}">
                                                     @csrf
-                                                    <input type="hidden" name="total" value="{{Cart::instance('cart')->total() + 50}}">
-                                                    <button type="submit" class="btn btn-solid-default btn fw-bold">Place Order 1</button>
+                                                    <button type="submit">Confirm Order</button>
                                                 </form>
+                                                
+                                                
                                             </div>
                                         </div>
                                     </div>
